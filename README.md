@@ -9,7 +9,7 @@
 <br>
 
 <a href="https://github.com/Ishrat-Bhullar?tab=repositories">
-  <img alt="Repositories" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.github.com%2Fusers%2FIshrat-Bhullar&query=%24.public_repos&label=repositories&style=flat-square&color=0D1117&labelColor=161B22&logo=github&logoColor=8B949E">
+  <img alt="Repositories" src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FIshrat-Bhullar%2FIshrat-Bhullar%2Fmain%2Fassets%2Frepos-badge.json&style=flat-square">
 </a>
 <a href="https://github.com/Ishrat-Bhullar?tab=followers">
   <img alt="Followers" src="https://img.shields.io/github/followers/Ishrat-Bhullar?label=followers&style=flat-square&color=0D1117&labelColor=161B22&logo=github&logoColor=8B949E">
@@ -42,37 +42,26 @@ Most of my work lives at the intersection of **applied LLM engineering** and **s
 
 ## Tech Stack
 
+<!--
+  Each group is kept on ONE source line on purpose. GitHub renders a single
+  newline as a hard <br>, which would stack the badges one per row.
+-->
+
 **Languages**
 
-![Python](https://img.shields.io/badge/Python-0D1117?style=for-the-badge&logo=python&logoColor=3776AB)
-![JavaScript](https://img.shields.io/badge/JavaScript-0D1117?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
-![TypeScript](https://img.shields.io/badge/TypeScript-0D1117?style=for-the-badge&logo=typescript&logoColor=3178C6)
-![SQL](https://img.shields.io/badge/SQL-0D1117?style=for-the-badge&logo=postgresql&logoColor=4169E1)
+![Python](https://img.shields.io/badge/Python-0D1117?style=for-the-badge&logo=python&logoColor=3776AB) ![JavaScript](https://img.shields.io/badge/JavaScript-0D1117?style=for-the-badge&logo=javascript&logoColor=F7DF1E) ![TypeScript](https://img.shields.io/badge/TypeScript-0D1117?style=for-the-badge&logo=typescript&logoColor=3178C6) ![SQL](https://img.shields.io/badge/SQL-0D1117?style=for-the-badge&logo=postgresql&logoColor=4169E1)
 
 **Frameworks**
 
-![FastAPI](https://img.shields.io/badge/FastAPI-0D1117?style=for-the-badge&logo=fastapi&logoColor=009688)
-![React](https://img.shields.io/badge/React-0D1117?style=for-the-badge&logo=react&logoColor=61DAFB)
-![Node.js](https://img.shields.io/badge/Node.js-0D1117?style=for-the-badge&logo=nodedotjs&logoColor=5FA04E)
-![Express](https://img.shields.io/badge/Express-0D1117?style=for-the-badge&logo=express&logoColor=E5E7EB)
+![FastAPI](https://img.shields.io/badge/FastAPI-0D1117?style=for-the-badge&logo=fastapi&logoColor=009688) ![React](https://img.shields.io/badge/React-0D1117?style=for-the-badge&logo=react&logoColor=61DAFB) ![Node.js](https://img.shields.io/badge/Node.js-0D1117?style=for-the-badge&logo=nodedotjs&logoColor=5FA04E) ![Express](https://img.shields.io/badge/Express-0D1117?style=for-the-badge&logo=express&logoColor=E5E7EB)
 
 **AI & Retrieval**
 
-![Ollama](https://img.shields.io/badge/Ollama-0D1117?style=for-the-badge&logo=ollama&logoColor=E5E7EB)
-![LangChain](https://img.shields.io/badge/LangChain-0D1117?style=for-the-badge&logo=langchain&logoColor=E5E7EB)
-![ChromaDB](https://img.shields.io/badge/ChromaDB-0D1117?style=for-the-badge&logo=databricks&logoColor=FF6B35)
-![FAISS](https://img.shields.io/badge/FAISS-0D1117?style=for-the-badge&logo=meta&logoColor=0467DF)
-![MongoDB](https://img.shields.io/badge/MongoDB-0D1117?style=for-the-badge&logo=mongodb&logoColor=47A248)
-![BM25](https://img.shields.io/badge/BM25-0D1117?style=for-the-badge&logo=apachesolr&logoColor=D9411E)
-![OCR](https://img.shields.io/badge/Tesseract_OCR-0D1117?style=for-the-badge&logo=abbyy&logoColor=E5E7EB)
+![Ollama](https://img.shields.io/badge/Ollama-0D1117?style=for-the-badge&logo=ollama&logoColor=E5E7EB) ![LangChain](https://img.shields.io/badge/LangChain-0D1117?style=for-the-badge&logo=langchain&logoColor=E5E7EB) ![ChromaDB](https://img.shields.io/badge/ChromaDB-0D1117?style=for-the-badge&logo=databricks&logoColor=FF6B35) ![FAISS](https://img.shields.io/badge/FAISS-0D1117?style=for-the-badge&logo=meta&logoColor=0467DF) ![MongoDB](https://img.shields.io/badge/MongoDB-0D1117?style=for-the-badge&logo=mongodb&logoColor=47A248) ![BM25](https://img.shields.io/badge/BM25-0D1117?style=for-the-badge&logo=apachesolr&logoColor=D9411E) ![Tesseract OCR](https://img.shields.io/badge/Tesseract_OCR-0D1117?style=for-the-badge&logo=abbyy&logoColor=E5E7EB)
 
 **Tooling**
 
-![Docker](https://img.shields.io/badge/Docker-0D1117?style=for-the-badge&logo=docker&logoColor=2496ED)
-![Git](https://img.shields.io/badge/Git-0D1117?style=for-the-badge&logo=git&logoColor=F05032)
-![GitHub](https://img.shields.io/badge/GitHub-0D1117?style=for-the-badge&logo=github&logoColor=E5E7EB)
-![VS Code](https://img.shields.io/badge/VS_Code-0D1117?style=for-the-badge&logo=visualstudiocode&logoColor=007ACC)
-![Postman](https://img.shields.io/badge/Postman-0D1117?style=for-the-badge&logo=postman&logoColor=FF6C37)
+![Docker](https://img.shields.io/badge/Docker-0D1117?style=for-the-badge&logo=docker&logoColor=2496ED) ![Git](https://img.shields.io/badge/Git-0D1117?style=for-the-badge&logo=git&logoColor=F05032) ![GitHub](https://img.shields.io/badge/GitHub-0D1117?style=for-the-badge&logo=github&logoColor=E5E7EB) ![VS Code](https://img.shields.io/badge/VS_Code-0D1117?style=for-the-badge&logo=visualstudiocode&logoColor=007ACC) ![Postman](https://img.shields.io/badge/Postman-0D1117?style=for-the-badge&logo=postman&logoColor=FF6C37)
 
 <img src="https://raw.githubusercontent.com/Ishrat-Bhullar/Ishrat-Bhullar/main/assets/divider.svg" width="100%" alt="">
 

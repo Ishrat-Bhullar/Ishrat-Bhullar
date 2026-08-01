@@ -193,7 +193,9 @@ def render_stats(totals: dict, palette: dict) -> str:
         f'role="img" aria-label="GitHub statistics for {LOGIN}">',
         f'<style>text{{font-family:{FONT};}}</style>',
         f'<text x="0" y="22" fill="{palette["accent"]}" font-size="15" '
-        f'font-weight="600" opacity="1">GitHub Statistics{fade_in(0)}</text>',
+        # The README already carries a "GitHub Statistics" heading above this
+        # card, so the card itself is labelled for its contents instead.
+        f'font-weight="600" opacity="1">Overview{fade_in(0)}</text>',
         f'<rect x="0" y="34" width="{width}" height="1" '
         f'fill="{palette["track"]}" opacity="1">{fade_in(1)}</rect>',
     ]
@@ -281,6 +283,24 @@ def main() -> int:
         (ASSETS / f"languages-{name}.svg").write_text(
             render_languages(languages, palette)
         )
+
+    # shields.io's dynamic/json badge has to call api.github.com itself and
+    # renders "invalid" whenever that call is rate-limited. Publishing a
+    # shields endpoint descriptor instead keeps the badge but removes the
+    # live dependency.
+    (ASSETS / "repos-badge.json").write_text(
+        json.dumps(
+            {
+                "schemaVersion": 1,
+                "label": "repositories",
+                "message": str(totals.get("Public Repos", 0)),
+                "color": "0D1117",
+                "labelColor": "161B22",
+                "namedLogo": "github",
+                "logoColor": "8B949E",
+            }
+        )
+    )
 
     print(f"Rendered cards for {LOGIN}: {totals}")
     print("Languages: " + ", ".join(f"{n} {s:.1f}%" for n, _, s in languages))

@@ -5,13 +5,13 @@
 <clipPath id="bar"><rect x="0" y="48" width="450" height="8" rx="4.0"/></clipPath>
 <rect x="0" y="48" width="450" height="8" rx="4.0" fill="#D0D7DE"/>
 <g clip-path="url(#bar)">
-<rect x="0.00" y="48" width="230.52" height="8" fill="#3572A5"><animate attributeName="width" from="0" to="230.52" dur="0.9s" begin="0.00s" fill="freeze"/></rect>
-<rect x="230.52" y="48" width="160.67" height="8" fill="#3178c6"><animate attributeName="width" from="0" to="160.67" dur="0.9s" begin="0.08s" fill="freeze"/></rect>
-<rect x="391.19" y="48" width="39.27" height="8" fill="#f1e05a"><animate attributeName="width" from="0" to="39.27" dur="0.9s" begin="0.16s" fill="freeze"/></rect>
-<rect x="430.46" y="48" width="17.48" height="8" fill="#e34c26"><animate attributeName="width" from="0" to="17.48" dur="0.9s" begin="0.24s" fill="freeze"/></rect>
+<rect x="0.00" y="48" width="230.94" height="8" fill="#3572A5"><animate attributeName="width" from="0" to="230.94" dur="0.9s" begin="0.00s" fill="freeze"/></rect>
+<rect x="230.94" y="48" width="160.36" height="8" fill="#3178c6"><animate attributeName="width" from="0" to="160.36" dur="0.9s" begin="0.08s" fill="freeze"/></rect>
+<rect x="391.30" y="48" width="39.20" height="8" fill="#f1e05a"><animate attributeName="width" from="0" to="39.20" dur="0.9s" begin="0.16s" fill="freeze"/></rect>
+<rect x="430.50" y="48" width="17.44" height="8" fill="#e34c26"><animate attributeName="width" from="0" to="17.44" dur="0.9s" begin="0.24s" fill="freeze"/></rect>
 </g>
-<g opacity="1"><animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="0.16s" fill="freeze"/><circle cx="5" cy="82" r="5" fill="#3572A5"/><text x="18" y="86" fill="#57606A" font-size="13">Python</text><text x="201" y="86" fill="#1F2328" font-size="13" text-anchor="end">51.2%</text></g>
-<g opacity="1"><animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="0.24s" fill="freeze"/><circle cx="230" cy="82" r="5" fill="#3178c6"/><text x="243" y="86" fill="#57606A" font-size="13">TypeScript</text><text x="426" y="86" fill="#1F2328" font-size="13" text-anchor="end">35.7%</text></g>
+<g opacity="1"><animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="0.16s" fill="freeze"/><circle cx="5" cy="82" r="5" fill="#3572A5"/><text x="18" y="86" fill="#57606A" font-size="13">Python</text><text x="201" y="86" fill="#1F2328" font-size="13" text-anchor="end">51.3%</text></g>
+<g opacity="1"><animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="0.24s" fill="freeze"/><circle cx="230" cy="82" r="5" fill="#3178c6"/><text x="243" y="86" fill="#57606A" font-size="13">TypeScript</text><text x="426" y="86" fill="#1F2328" font-size="13" text-anchor="end">35.6%</text></g>
 <g opacity="1"><animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="0.32s" fill="freeze"/><circle cx="5" cy="106" r="5" fill="#f1e05a"/><text x="18" y="110" fill="#57606A" font-size="13">JavaScript</text><text x="201" y="110" fill="#1F2328" font-size="13" text-anchor="end">8.7%</text></g>
 <g opacity="1"><animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="0.40s" fill="freeze"/><circle cx="230" cy="106" r="5" fill="#e34c26"/><text x="243" y="110" fill="#57606A" font-size="13">HTML</text><text x="426" y="110" fill="#1F2328" font-size="13" text-anchor="end">3.9%</text></g>
 </svg>
