@@ -1,0 +1,28 @@
+name: Refresh recent activity
+
+on:
+  schedule:
+    # Every six hours, off the hour to avoid GitHub's peak-of-hour scheduling backlog.
+    - cron: "23 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: activity
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Rewrite the activity block in README.md
+        uses: jamesgeorge007/github-activity-readme@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          COMMIT_MSG: "chore(readme): refresh recent activity feed"
+          MAX_LINES: 5
