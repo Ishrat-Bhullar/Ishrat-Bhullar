@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="450" height="126" viewBox="0 0 450 126" role="img" aria-label="GitHub statistics for Ishrat-Bhullar">
+<style>text{font-family:ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace;}</style>
+<text x="0" y="22" fill="#0969DA" font-size="15" font-weight="600" opacity="1">GitHub Statistics<animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="0.00s" fill="freeze"/></text>
+<rect x="0" y="34" width="450" height="1" fill="#D0D7DE" opacity="1"><animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="0.08s" fill="freeze"/></rect>
+<g opacity="1"><animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="0.16s" fill="freeze"/><text x="0" y="62" fill="#57606A" font-size="13">Total Commits</text><text x="450" y="62" fill="#1F2328" font-size="13" font-weight="600" text-anchor="end">20</text></g>
+<g opacity="1"><animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="0.24s" fill="freeze"/><text x="0" y="88" fill="#57606A" font-size="13">Public Repos</text><text x="450" y="88" fill="#1F2328" font-size="13" font-weight="600" text-anchor="end">4</text></g>
+</svg>

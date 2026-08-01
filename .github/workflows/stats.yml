@@ -1,0 +1,48 @@
+name: Refresh statistics cards
+
+on:
+  schedule:
+    # Daily, off the hour to avoid GitHub's peak-of-hour scheduling backlog.
+    - cron: "41 4 * * *"
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - scripts/generate_stats.py
+      - .github/workflows/stats.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: stats
+  cancel-in-progress: true
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Render cards from the GraphQL API
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_LOGIN: ${{ github.repository_owner }}
+        run: python3 scripts/generate_stats.py
+
+      - name: Commit refreshed cards
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/stats-*.svg assets/languages-*.svg
+          if git diff --staged --quiet; then
+            echo "Cards unchanged; nothing to commit."
+          else
+            git commit -m "chore(stats): refresh generated statistics cards"
+            git push
+          fi
