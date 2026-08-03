@@ -426,11 +426,58 @@ def hero(p, width=880):
     return document(width, h, "Ishrat Bhullar", "".join(body), p)
 
 
+
+def project_hero(name, tagline, tags, p, width=880):
+    """Banner for an individual project repository."""
+    h = 138
+    body = [
+        f'<defs><linearGradient id="rule" x1="0" y1="0" x2="1" y2="0">'
+        f'<stop offset="0%" stop-color="{p["accent"]}" stop-opacity="0"/>'
+        f'<stop offset="35%" stop-color="{p["accent"]}" stop-opacity="0.85"/>'
+        f'<stop offset="65%" stop-color="{p["accent"]}" stop-opacity="0.85"/>'
+        f'<stop offset="100%" stop-color="{p["accent"]}" stop-opacity="0"/>'
+        f'<animate attributeName="x1" values="-0.5;0;-0.5" dur="8s" repeatCount="indefinite"/>'
+        f'<animate attributeName="x2" values="1;1.5;1" dur="8s" repeatCount="indefinite"/>'
+        f'</linearGradient></defs>',
+        f'<text x="{width/2}" y="46" fill="{p["text"]}" font-size="27" font-weight="700" '
+        f'letter-spacing="1.4" text-anchor="middle" opacity="1">{esc(name)}{fade(1,0.7)}</text>',
+        f'<rect x="{width/2-150}" y="60" width="300" height="1.5" fill="url(#rule)" '
+        f'opacity="1">{fade(2)}</rect>',
+        f'<text x="{width/2}" y="84" fill="{p["muted"]}" font-size="12" '
+        f'text-anchor="middle" opacity="1">{esc(tagline)}{fade(3)}</text>',
+    ]
+    # Tag pills, centred as one row.
+    ch, gap = 24, 7
+    widths = [len(t) * 6.1 + 24 for t in tags]
+    total = sum(widths) + gap * (len(tags) - 1)
+    x = (width - total) / 2
+    for i, (tag, tw) in enumerate(zip(tags, widths)):
+        body.append(f'<g opacity="1">{fade(4+i)}'
+                    f'<rect x="{x:.1f}" y="102" width="{tw:.1f}" height="{ch}" rx="{ch/2}" '
+                    f'fill="{p["surface"]}" stroke="{p["border"]}"/>'
+                    f'<text x="{x+tw/2:.1f}" y="118" fill="{p["muted"]}" font-size="10.5" '
+                    f'text-anchor="middle">{esc(tag)}</text></g>')
+        x += tw + gap
+    return document(width, h, name, "".join(body), p)
+
+
 # ───────────────────────────────────────────────────────────── registry ──
 
 def build(p):
     return {
         "svg/hero": hero(p),
+        "svg/hero-vectorless": project_hero(
+            "VECTORLESS RAG CHATBOT",
+            "Document intelligence with no vector database \u2014 BM25 retrieval and a local LLM",
+            ["Python", "FastAPI", "BM25", "Ollama", "Streamlit", "OCR"], p),
+        "svg/hero-hybrid": project_hero(
+            "HYBRID RAG CHATBOT",
+            "Semantic and lexical retrieval, fused by rank fusion, with citation-backed answers",
+            ["Python", "FastAPI", "FAISS", "ChromaDB", "BM25", "React", "Ollama"], p),
+        "svg/hero-sdlc": project_hero(
+            "AUTONOMOUS MULTI-AGENT SDLC PLATFORM",
+            "Specialised AI agents turn a requirement into engineering artifacts, under human approval",
+            ["Python", "TypeScript", "FastAPI", "React", "PostgreSQL", "LangGraph"], p),
         "svg/journey": journey(p),
         "architecture/vectorless-rag": layered(
             "Vectorless RAG Chatbot — System Architecture",
