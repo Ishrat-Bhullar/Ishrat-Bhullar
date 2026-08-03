@@ -336,9 +336,9 @@ Single-page, ATS-friendly. Covers the EY AI engineering internship, the multi-ag
 <br><br>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-activity-graph.vercel.app/graph?username=Ishrat-Bhullar&bg_color=00000000&color=8B949E&line=58A6FF&point=58A6FF&title_color=58A6FF&area=true&area_color=58A6FF&hide_border=true&custom_title=Contribution%20Activity">
-  <source media="(prefers-color-scheme: light)" srcset="https://github-readme-activity-graph.vercel.app/graph?username=Ishrat-Bhullar&bg_color=00000000&color=57606A&line=0969DA&point=0969DA&title_color=0969DA&area=true&area_color=0969DA&hide_border=true&custom_title=Contribution%20Activity">
-  <img alt="Contribution activity graph" src="https://github-readme-activity-graph.vercel.app/graph?username=Ishrat-Bhullar&bg_color=00000000&color=8B949E&line=58A6FF&point=58A6FF&title_color=58A6FF&area=true&area_color=58A6FF&hide_border=true&custom_title=Contribution%20Activity" width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Ishrat-Bhullar/Ishrat-Bhullar/main/assets/contributions-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Ishrat-Bhullar/Ishrat-Bhullar/main/assets/contributions-light.svg">
+  <img alt="Contribution activity" src="https://raw.githubusercontent.com/Ishrat-Bhullar/Ishrat-Bhullar/main/assets/contributions-dark.svg" width="100%">
 </picture>
 
 <br><br>

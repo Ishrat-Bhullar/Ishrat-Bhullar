@@ -78,6 +78,19 @@ query($login: String!, $from: DateTime!, $to: DateTime!) {
 }
 """
 
+CALENDAR_QUERY = """
+query($login: String!) {
+  user(login: $login) {
+    contributionsCollection {
+      contributionCalendar {
+        totalContributions
+        weeks { contributionDays { date contributionCount } }
+      }
+    }
+  }
+}
+"""
+
 
 def graphql(query: str, variables: dict, token: str) -> dict:
     payload = json.dumps({"query": query, "variables": variables}).encode()
@@ -265,6 +278,86 @@ def render_languages(languages: list[tuple[str, str, float]], palette: dict) -> 
     return "\n".join(parts)
 
 
+def collect_calendar(token: str) -> tuple[int, list[tuple[str, int]]]:
+    """Weekly contribution totals for the trailing year, plus the year total."""
+    calendar = graphql(CALENDAR_QUERY, {"login": LOGIN}, token)[
+        "user"]["contributionsCollection"]["contributionCalendar"]
+    weeks = []
+    for week in calendar["weeks"]:
+        days = week["contributionDays"]
+        if days:
+            weeks.append((days[0]["date"], sum(d["contributionCount"] for d in days)))
+    return calendar["totalContributions"], weeks
+
+
+def render_contributions(total: int, weeks: list[tuple[str, int]], palette: dict) -> str:
+    """Area chart of weekly contributions.
+
+    Replaces the third-party activity-graph widget, which answers HTTP 200 with
+    an error message drawn inside the SVG — a broken image that a status check
+    cannot detect.
+    """
+    width, height = 880, 190
+    left, right, top, bottom = 38, 14, 52, 30
+    plot_w, plot_h = width - left - right, height - top - bottom
+    peak = max((c for _, c in weeks), default=0) or 1
+    step = plot_w / max(1, len(weeks) - 1)
+
+    def point(i: int, count: int) -> tuple[float, float]:
+        return left + i * step, top + plot_h - (count / peak) * plot_h
+
+    coords = [point(i, c) for i, (_, c) in enumerate(weeks)]
+    line = " ".join(f"{x:.1f},{y:.1f}" for x, y in coords)
+    area = (f"{left},{top + plot_h} " + line +
+            f" {left + (len(weeks)-1) * step:.1f},{top + plot_h}")
+
+    parts = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" '
+        f'viewBox="0 0 {width} {height}" role="img" '
+        f'aria-label="Contribution activity for {LOGIN}">',
+        f'<style>text{{font-family:{FONT};}}</style>',
+        f'<defs><linearGradient id="fill" x1="0" y1="0" x2="0" y2="1">'
+        f'<stop offset="0%" stop-color="{palette["accent"]}" stop-opacity="0.34"/>'
+        f'<stop offset="100%" stop-color="{palette["accent"]}" stop-opacity="0"/>'
+        f'</linearGradient></defs>',
+        f'<text x="0" y="22" fill="{palette["accent"]}" font-size="15" font-weight="600" '
+        f'opacity="1">Contribution Activity{fade_in(0)}</text>',
+        f'<text x="{width}" y="22" fill="{palette["label"]}" font-size="12" '
+        f'text-anchor="end" opacity="1">{total:,} in the last year{fade_in(0)}</text>',
+        f'<rect x="0" y="34" width="{width}" height="1" fill="{palette["track"]}" '
+        f'opacity="1">{fade_in(1)}</rect>',
+    ]
+
+    # Horizontal guides at the peak and midpoint.
+    for frac in (0.0, 0.5, 1.0):
+        y = top + plot_h - frac * plot_h
+        parts.append(f'<line x1="{left}" y1="{y:.1f}" x2="{width-right}" y2="{y:.1f}" '
+                     f'stroke="{palette["track"]}" stroke-width="1" opacity="0.6"/>')
+        parts.append(f'<text x="{left-8}" y="{y+4:.1f}" fill="{palette["muted"]}" '
+                     f'font-size="9.5" text-anchor="end">{round(peak*frac)}</text>')
+
+    parts.append(f'<polygon points="{area}" fill="url(#fill)" opacity="1">{fade_in(2)}</polygon>')
+    parts.append(f'<polyline points="{line}" fill="none" stroke="{palette["accent"]}" '
+                 f'stroke-width="2" stroke-linejoin="round" stroke-linecap="round" '
+                 f'opacity="1">{fade_in(2)}</polyline>')
+
+    # Month ticks, one label per month change.
+    seen = set()
+    for i, (date, _) in enumerate(weeks):
+        month = date[:7]
+        if month in seen:
+            continue
+        seen.add(month)
+        x = left + i * step
+        label = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+                 "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"][int(date[5:7]) - 1]
+        parts.append(f'<text x="{x:.1f}" y="{height-10}" fill="{palette["muted"]}" '
+                     f'font-size="9.5" text-anchor="middle">{label}</text>')
+
+    parts.append("</svg>")
+    return "\n".join(parts)
+
+
 def main() -> int:
     token = os.environ.get("GITHUB_TOKEN")
     if not token:
@@ -273,6 +366,7 @@ def main() -> int:
 
     try:
         totals, languages = collect(token)
+        total_contributions, weeks = collect_calendar(token)
     except (urllib.error.URLError, RuntimeError) as error:
         print(f"Failed to fetch statistics: {error}", file=sys.stderr)
         return 1
@@ -282,6 +376,9 @@ def main() -> int:
         (ASSETS / f"stats-{name}.svg").write_text(render_stats(totals, palette))
         (ASSETS / f"languages-{name}.svg").write_text(
             render_languages(languages, palette)
+        )
+        (ASSETS / f"contributions-{name}.svg").write_text(
+            render_contributions(total_contributions, weeks, palette)
         )
 
     # shields.io's dynamic/json badge has to call api.github.com itself and
@@ -304,6 +401,7 @@ def main() -> int:
 
     print(f"Rendered cards for {LOGIN}: {totals}")
     print("Languages: " + ", ".join(f"{n} {s:.1f}%" for n, _, s in languages))
+    print(f"Contributions: {total_contributions} across {len(weeks)} weeks")
     return 0
 
 
