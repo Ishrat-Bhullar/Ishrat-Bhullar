@@ -24,22 +24,23 @@ THEMES = {
               "text": "#1F2328", "label": "#57606A"},
 }
 
-# Grouped exactly as the report groups them.
+# Grouped by responsibility rather than by the report's table order.
 GROUPS = [
-    ("Languages",           ["Python", "JavaScript", "TypeScript", "SQL"]),
-    ("Backend",             ["FastAPI", "REST APIs", "PostgreSQL"]),
-    ("Frontend",            ["React", "Streamlit"]),
-    ("Retrieval & Indexes", ["BM25", "FAISS", "ChromaDB", "Reciprocal Rank Fusion",
-                             "Multilingual Embeddings"]),
-    ("AI & Runtimes",       ["Retrieval-Augmented Generation", "Multi-Agent Systems",
-                             "Ollama (local)", "Configurable cloud providers"]),
-    ("Document Processing", ["OCR", "PDF Parsing", "Chunking"]),
-    ("Tooling",             ["Git", "Docker"]),
+    ("Languages",        ["Python", "TypeScript", "JavaScript", "SQL"]),
+    ("Backend",          ["FastAPI", "REST APIs", "Async Services"]),
+    ("Frontend",         ["React", "Vite", "Tailwind CSS", "Streamlit"]),
+    ("Retrieval",        ["BM25", "FAISS", "ChromaDB", "Reciprocal Rank Fusion",
+                          "Cross-Encoder Reranking", "Multilingual Embeddings"]),
+    ("AI",               ["Retrieval-Augmented Generation", "Multi-Agent Systems",
+                          "LangGraph", "Ollama", "Azure OpenAI", "OCR"]),
+    ("Infrastructure",   ["PostgreSQL", "Docker"]),
+    ("Deployment",       ["On-premise", "Air-gapped", "BYOK Provider Routing"]),
+    ("Developer Tools",  ["Git", "GitHub"]),
 ]
 
-WIDTH, PAD = 880, 4
+WIDTH, PAD = 880, 6
 CHIP_H, CHIP_GAP, ROW_GAP = 30, 8, 12
-GROUP_GAP, LABEL_H = 20, 22
+GROUP_GAP, LABEL_H = 22, 24
 CHAR_W = 6.4          # ≈ advance width at 11.5px in the stack above
 CHIP_PAD = 15
 

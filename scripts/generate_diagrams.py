@@ -136,13 +136,13 @@ def document(width, height, label, body, p, title=None, note=None):
            f'viewBox="0 0 {width} {height}" role="img" aria-label="{esc(label)}">',
            f'<style>text{{font-family:{FONT};}}</style>']
     if title:
-        out.append(f'<text x="{width/2}" y="24" fill="{p["accent"]}" font-size="14.5" '
-                   f'font-weight="700" text-anchor="middle" opacity="1">'
-                   f'{esc(title)}{fade(0)}</text>')
+        out.append(f'<text x="{width/2}" y="26" fill="{p["accent"]}" font-size="14" '
+                   f'font-weight="700" letter-spacing="0.4" text-anchor="middle" '
+                   f'opacity="1">{esc(title)}{fade(0)}</text>')
     out.append(body)
     if note:
-        out.append(f'<text x="{width/2}" y="{height-10}" fill="{p["faint"]}" '
-                   f'font-size="10.5" font-style="italic" text-anchor="middle" '
+        out.append(f'<text x="{width/2}" y="{height-12}" fill="{p["faint"]}" '
+                   f'font-size="10.5" text-anchor="middle" '
                    f'opacity="1">{esc(note)}{fade(12)}</text>')
     out.append("</svg>")
     return "\n".join(out)
@@ -152,7 +152,7 @@ def document(width, height, label, body, p, title=None, note=None):
 
 def layered(title, layers, note, p, width=880):
     """Vertical layer stack — used for both RAG system architectures."""
-    x, bw, bh, gap, top = 92, width - 92 - 40, 60, 26, 46
+    x, bw, bh, gap, top = 92, width - 92 - 40, 60, 26, 54
     body, idx = [], 1
     for i, (name, sub) in enumerate(layers):
         y = top + i * (bh + gap)
@@ -165,7 +165,7 @@ def layered(title, layers, note, p, width=880):
         idx += 1
         if i < len(layers) - 1:
             body.append(arrow(x + bw/2, y + bh, x + bw/2, y + bh + gap, p, idx))
-    height = top + len(layers) * (bh + gap) - gap + 34
+    height = top + len(layers) * (bh + gap) - gap + 40
     return document(width, height, title, "".join(body), p, title, note)
 
 
@@ -174,7 +174,7 @@ def pipeline(title, steps, note, p, width=880, per_row=4):
     pad, gap_x, gap_y, bh = 20, 30, 34, 56
     bw = (width - 2*pad - (per_row-1)*gap_x) / per_row
     rows = [steps[i:i+per_row] for i in range(0, len(steps), per_row)]
-    body, idx, top = [], 1, 46
+    body, idx, top = [], 1, 54
 
     for r, row in enumerate(rows):
         y = top + r * (bh + gap_y)
@@ -196,7 +196,7 @@ def pipeline(title, steps, note, p, width=880, per_row=4):
                         f'opacity="0.7">{drift()}</path>'
                         f'<polygon points="{pad+bw/2},{y2} {pad+bw/2-5},{y2-5} '
                         f'{pad+bw/2+5},{y2-5}" fill="{p["faint"]}" opacity="0.85"/></g>')
-    height = top + len(rows) * (bh + gap_y) - gap_y + 34
+    height = top + len(rows) * (bh + gap_y) - gap_y + 40
     return document(width, height, title, "".join(body), p, title, note)
 
 
