@@ -104,10 +104,10 @@ def encode(frames: list[Image.Image], target: Path) -> None:
             frame.save(tmpdir / f"f{i:04d}.png")
         palette = tmpdir / "palette.png"
         common = ["-v", "error", "-framerate", str(FPS), "-i", str(tmpdir / "f%04d.png")]
-        subprocess.run(["ffmpeg", *common, "-vf", "palettegen=max_colors=128:stats_mode=diff",
+        subprocess.run(["ffmpeg", *common, "-vf", "palettegen=max_colors=96:stats_mode=diff",
                         "-y", str(palette)], check=True)
         subprocess.run(["ffmpeg", *common, "-i", str(palette), "-lavfi",
-                        "paletteuse=dither=bayer:bayer_scale=3", "-loop", "0",
+                        "paletteuse=dither=bayer:bayer_scale=4:diff_mode=rectangle", "-loop", "0",
                         "-y", str(target)], check=True)
 
 
