@@ -133,7 +133,7 @@ Four projects. Each one was motivated by the outcome of the one before it.
 
 ### Autonomous Multi-Agent SDLC Platform
 
-> Eight specialised AI agents turn a business requirement into engineering artifacts, gated by mandatory human approval.
+> Nine specialised AI agents turn a business requirement into engineering artifacts, gated by mandatory human approval.
 
 **Problem.** Enterprise delivery depends on a sequence of specialists — business analysts, architects, database designers, security reviewers — each producing documentation that must stay consistent with everyone else's. Coordinating that manually produces incomplete requirements at initiation, architecture quality that varies with individual experience, artifacts that drift out of consistency, and slow knowledge transfer.
 

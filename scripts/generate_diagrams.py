@@ -276,8 +276,8 @@ def sdlc_architecture(p, width=880):
                 f'font-weight="600" text-anchor="middle">Specialized AI Agent Pool</text></g>')
     idx += 1
     agents = ["Memory", "Requirement", "Business Analyst", "Architect",
-              "Database", "UI/UX", "Security", "Compliance"]
-    cw = (w - 24 - 7*8) / 8
+              "Database", "UI/UX", "Security", "Compliance", "Presentation & Video"]
+    cw = (w - 24 - (len(agents) - 1) * 8) / len(agents)
     for i, name in enumerate(agents):
         ax = pad + 12 + i * (cw + 8)
         body.append(f'<g opacity="1">{fade(idx+i)}'
@@ -290,8 +290,8 @@ def sdlc_architecture(p, width=880):
                     + "</g>")
     idx += len(agents)
     body.append(f'<text x="{width/2}" y="{pool_y+80}" fill="{p["muted"]}" font-size="10" '
-                f'text-anchor="middle" opacity="1">Presentation / Narration / Video '
-                f'Generation Agents{fade(idx)}</text>')
+                f'text-anchor="middle" opacity="1">Narration and text-to-speech run as '
+                f'stages inside the media generation pipeline{fade(idx)}</text>')
     idx += 1
 
     # Two supporting blocks
