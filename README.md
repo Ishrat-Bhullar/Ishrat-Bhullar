@@ -335,7 +335,7 @@ Supporting designs that span the projects above.
 
 <br>
 
-<sub>Open to AI engineering and backend roles · Patiala, India</sub>
+<sub>Open to AI engineering and backend roles · Mohali, India</sub>
 
 </div>
 
