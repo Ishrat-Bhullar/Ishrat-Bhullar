@@ -5,8 +5,8 @@
 <clipPath id="bar"><rect x="0" y="48" width="450" height="8" rx="4.0"/></clipPath>
 <rect x="0" y="48" width="450" height="8" rx="4.0" fill="#D0D7DE"/>
 <g clip-path="url(#bar)">
-<rect x="0.00" y="48" width="235.40" height="8" fill="#3572A5"><animate attributeName="width" from="0" to="235.40" dur="0.9s" begin="0.00s" fill="freeze"/></rect>
-<rect x="235.40" y="48" width="157.10" height="8" fill="#3178c6"><animate attributeName="width" from="0" to="157.10" dur="0.9s" begin="0.08s" fill="freeze"/></rect>
+<rect x="0.00" y="48" width="235.41" height="8" fill="#3572A5"><animate attributeName="width" from="0" to="235.41" dur="0.9s" begin="0.00s" fill="freeze"/></rect>
+<rect x="235.41" y="48" width="157.09" height="8" fill="#3178c6"><animate attributeName="width" from="0" to="157.09" dur="0.9s" begin="0.08s" fill="freeze"/></rect>
 <rect x="392.50" y="48" width="38.40" height="8" fill="#f1e05a"><animate attributeName="width" from="0" to="38.40" dur="0.9s" begin="0.16s" fill="freeze"/></rect>
 <rect x="430.90" y="48" width="17.09" height="8" fill="#e34c26"><animate attributeName="width" from="0" to="17.09" dur="0.9s" begin="0.24s" fill="freeze"/></rect>
 </g>
