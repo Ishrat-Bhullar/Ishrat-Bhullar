@@ -317,7 +317,7 @@ Supporting designs that span the projects above.
 
 <!--START_SECTION:activity-->
 - Pushed to [Ishrat-Bhullar](https://github.com/Ishrat-Bhullar/Ishrat-Bhullar) &nbsp;·&nbsp; <sub>29 days ago</sub>
-- Pushed to [sdlc-platform](https://github.com/Ishrat-Bhullar/sdlc-platform) &nbsp;·&nbsp; <sub>29 days ago</sub>
+- Pushed to [sdlc-platform](https://github.com/Ishrat-Bhullar/sdlc-platform) &nbsp;·&nbsp; <sub>1 month ago</sub>
 <!--END_SECTION:activity-->
 
 </details>
