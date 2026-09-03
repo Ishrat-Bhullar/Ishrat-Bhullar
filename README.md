@@ -316,8 +316,7 @@ Supporting designs that span the projects above.
 <summary><b>Recent activity</b></summary>
 
 <!--START_SECTION:activity-->
-- Pushed to [Ishrat-Bhullar](https://github.com/Ishrat-Bhullar/Ishrat-Bhullar) &nbsp;·&nbsp; <sub>1 month ago</sub>
-- Pushed to [sdlc-platform](https://github.com/Ishrat-Bhullar/sdlc-platform) &nbsp;·&nbsp; <sub>1 month ago</sub>
+_Recent public activity will appear here._
 <!--END_SECTION:activity-->
 
 </details>
